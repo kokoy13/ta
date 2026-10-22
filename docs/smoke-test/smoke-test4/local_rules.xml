@@ -1,0 +1,68 @@
+<group name="ojs,web,accesslog,">
+  <rule id="100100" level="0">
+    <if_sid>31100</if_sid>
+    <url>^/index\.php/.*/login</url>
+    <description>OJS login request grouped.</description>
+  </rule>
+
+  <rule id="100101" level="4">
+    <if_sid>100100</if_sid>
+    <id>^401$|^403$</id>
+    <description>OJS login failed.</description>
+  </rule>
+
+  <rule id="100102" level="10" frequency="10" timeframe="60">
+    <if_matched_sid>100101</if_matched_sid>
+    <same_source_ip />
+    <description>OJS brute-force: 10 failed logins in 60 seconds.</description>
+  </rule>
+
+  <rule id="100110" level="8">
+    <if_sid>31100</if_sid>
+    <url>\.\./|%2e%2e|%2E%2E|%252e%252e|%252E%252E</url>
+    <description>OJS path traversal attempt.</description>
+  </rule>
+
+  <rule id="100111" level="8">
+    <if_sid>31100</if_sid>
+    <url>importexport|IMPORTEXPORT|issue_galley|ISSUE_GALLEY</url>
+    <description>OJS importexport or galley probe.</description>
+  </rule>
+
+  <rule id="100112" level="0">
+    <if_sid>31101</if_sid>
+    <url>^/index\.php/</url>
+    <id>^404$</id>
+    <description>OJS 404 base event.</description>
+  </rule>
+
+  <rule id="100113" level="10" frequency="20" timeframe="60">
+    <if_matched_sid>100112</if_matched_sid>
+    <same_source_ip />
+    <description>OJS scanner: 20 OJS 404s in 60 seconds.</description>
+  </rule>
+
+  <rule id="100120" level="8">
+    <if_sid>31100</if_sid>
+    <url>union.*select|UNION.*SELECT|select.*from|SELECT.*FROM|or.*1=1|OR.*1=1|sleep\(|benchmark\(</url>
+    <description>OJS SQL injection attempt.</description>
+  </rule>
+
+  <rule id="100121" level="6">
+    <if_sid>31100</if_sid>
+    <url>script>|%3Cscript|%3CSCRIPT|onerror=|onload=|ONERROR=|ONLOAD=</url>
+    <description>OJS XSS attempt.</description>
+  </rule>
+
+  <rule id="100130" level="12" frequency="2" timeframe="300">
+    <if_matched_sid>100110</if_matched_sid>
+    <same_source_ip />
+    <description>OJS repeated path traversal probing.</description>
+  </rule>
+
+  <rule id="100131" level="12" frequency="2" timeframe="300">
+    <if_matched_sid>100111</if_matched_sid>
+    <same_source_ip />
+    <description>OJS repeated importexport probing.</description>
+  </rule>
+</group>

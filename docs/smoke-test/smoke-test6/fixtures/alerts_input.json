@@ -1,0 +1,38 @@
+{
+  "alerts": [
+    {
+      "alert_id": "alert-1",
+      "timestamp": "2026-10-21T10:00:15Z",
+      "rule_id": "100102",
+      "level": 10,
+      "description": "OJS brute-force: 10 failed logins in 60 seconds.",
+      "url": "/index.php/ojs/login",
+      "status": "401",
+      "ip_hash": "1018b1b7b2115472",
+      "ip_prefix": "203.0.113.0/24"
+    },
+    {
+      "alert_id": "alert-2",
+      "timestamp": "2026-10-21T10:01:40Z",
+      "rule_id": "100110",
+      "level": 8,
+      "description": "OJS path traversal attempt.",
+      "url": "/index.php/ojs/issue/view/1?file=../../../../etc/passwd",
+      "status": "403",
+      "ip_hash": "c0ffee0011223344",
+      "ip_prefix": "203.0.113.0/24"
+    },
+    {
+      "alert_id": "alert-4",
+      "timestamp": "2026-10-21T10:02:10Z",
+      "rule_id": "100111",
+      "level": 8,
+      "description": "OJS importexport or galley probe.",
+      "url": "/index.php/ojs/management/importexport/plugin",
+      "status": "200",
+      "ip_hash": "deadbeef55667788",
+      "ip_prefix": "203.0.113.0/24",
+      "cve": "CVE-2024-56525"
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+{
+  "scale": "1-5",
+  "criteria": [
+    {
+      "name": "faithfulness",
+      "description": "Semua klaim dapat ditelusuri ke alert input; tidak ada fakta yang dikarang.",
+      "anchors": {
+        "1": "Banyak klaim tidak didukung data.",
+        "3": "Sebagian klaim didukung, sebagian tidak.",
+        "5": "Semua klaim didukung alert_ids dan field input."
+      }
+    },
+    {
+      "name": "completeness",
+      "description": "Mencakup pola, sumber, URL/status, severity, dampak, dan bukti.",
+      "anchors": {
+        "1": "Hanya satu aspek yang dibahas.",
+        "3": "Beberapa aspek penting hilang.",
+        "5": "Semua aspek penting tercakup."
+      }
+    },
+    {
+      "name": "actionability",
+      "description": "Mitigasi jelas, manual, dan dapat dieksekusi analis.",
+      "anchors": {
+        "1": "Tidak ada langkah yang dapat dilakukan.",
+        "3": "Langkah ada tetapi umum.",
+        "5": "Langkah spesifik, aman, dan manual."
+      }
+    },
+    {
+      "name": "clarity",
+      "description": "Bahasa Indonesia ringkas, terstruktur, dan mudah dipahami.",
+      "anchors": {
+        "1": "Membingungkan atau bertele-tele.",
+        "3": "Cukup jelas tetapi tidak konsisten.",
+        "5": "Jelas, ringkas, dan terstruktur."
+      }
+    },
+    {
+      "name": "conciseness",
+      "description": "Tidak mengulang informasi dan tidak melebihi kebutuhan analis.",
+      "anchors": {
+        "1": "Sangat berulang atau panjang.",
+        "3": "Cukup ringkas dengan beberapa pengulangan.",
+        "5": "Padat dan tanpa pengulangan."
+      }
+    }
+  ]
+}

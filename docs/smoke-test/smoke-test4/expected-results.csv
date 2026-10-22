@@ -1,0 +1,42 @@
+line,scenario,expected_rule,note
+1,benign,-,no alert
+2,benign,-,no alert
+3,benign,-,no alert
+4,benign,-,no alert
+5,benign,-,no alert
+6,bruteforce_login,100101,rule 100102 pada event ke-10
+7,bruteforce_login,100101,rule 100102 pada event ke-10
+8,bruteforce_login,100101,rule 100102 pada event ke-10
+9,bruteforce_login,100101,rule 100102 pada event ke-10
+10,bruteforce_login,100101,rule 100102 pada event ke-10
+11,bruteforce_login,100101,rule 100102 pada event ke-10
+12,bruteforce_login,100101,rule 100102 pada event ke-10
+13,bruteforce_login,100101,rule 100102 pada event ke-10
+14,bruteforce_login,100101,rule 100102 pada event ke-10
+15,bruteforce_login,"100101,100102",rule 100102 pada event ke-10
+16,traversal,100110,event-level
+17,traversal_repeat,100110,rule 100130 pada event kedua
+18,traversal_repeat,"100110,100130",rule 100130 pada event kedua
+19,xxe_importexport,100111,event-level
+20,sqli,100120,event-level
+21,xss,100121,event-level
+22,scanner,100112,rule 100113 pada event ke-20
+23,scanner,100112,rule 100113 pada event ke-20
+24,scanner,100112,rule 100113 pada event ke-20
+25,scanner,100112,rule 100113 pada event ke-20
+26,scanner,100112,rule 100113 pada event ke-20
+27,scanner,100112,rule 100113 pada event ke-20
+28,scanner,100112,rule 100113 pada event ke-20
+29,scanner,100112,rule 100113 pada event ke-20
+30,scanner,100112,rule 100113 pada event ke-20
+31,scanner,100112,rule 100113 pada event ke-20
+32,scanner,100112,rule 100113 pada event ke-20
+33,scanner,100112,rule 100113 pada event ke-20
+34,scanner,100112,rule 100113 pada event ke-20
+35,scanner,100112,rule 100113 pada event ke-20
+36,scanner,100112,rule 100113 pada event ke-20
+37,scanner,100112,rule 100113 pada event ke-20
+38,scanner,100112,rule 100113 pada event ke-20
+39,scanner,100112,rule 100113 pada event ke-20
+40,scanner,100112,rule 100113 pada event ke-20
+41,scanner,"100112,100113",rule 100113 pada event ke-20

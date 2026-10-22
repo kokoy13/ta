@@ -1,0 +1,140 @@
+{
+  "hits": {
+    "total": {
+      "value": 7,
+      "relation": "eq"
+    },
+    "hits": [
+      {
+        "_id": "alert-1",
+        "_source": {
+          "timestamp": "2026-10-21T10:00:15Z",
+          "agent": {"name": "ojs-prod"},
+          "rule": {
+            "id": "100102",
+            "level": 10,
+            "description": "OJS brute-force: 10 failed logins in 60 seconds.",
+            "groups": ["ojs", "web", "bruteforce"]
+          },
+          "data": {
+            "srcip": "203.0.113.10",
+            "url": "/index.php/ojs/login",
+            "id": "401"
+          },
+          "full_log": "203.0.113.10 - - [21/Oct/2026:10:00:15 +0700] \"POST /index.php/ojs/login HTTP/1.1\" 401 512"
+        }
+      },
+      {
+        "_id": "alert-2",
+        "_source": {
+          "timestamp": "2026-10-21T10:01:40Z",
+          "agent": {"name": "ojs-prod"},
+          "rule": {
+            "id": "100110",
+            "level": 8,
+            "description": "OJS path traversal attempt.",
+            "groups": ["ojs", "web", "traversal"]
+          },
+          "data": {
+            "srcip": "203.0.113.20",
+            "url": "/index.php/ojs/issue/view/1?file=../../../../etc/passwd",
+            "id": "403"
+          },
+          "full_log": "203.0.113.20 - - [21/Oct/2026:10:01:40 +0700] \"GET /index.php/ojs/issue/view/1?file=../../../../etc/passwd HTTP/1.1\" 403 512"
+        }
+      },
+      {
+        "_id": "alert-3",
+        "_source": {
+          "timestamp": "2026-10-21T10:02:00Z",
+          "agent": {"name": "ojs-prod"},
+          "rule": {
+            "id": "100130",
+            "level": 12,
+            "description": "OJS repeated path traversal probing.",
+            "groups": ["ojs", "web", "traversal"]
+          },
+          "data": {
+            "srcip": "203.0.113.21",
+            "url": "/index.php/ojs/issue/view/2?file=../../../../etc/passwd",
+            "id": "403"
+          }
+        }
+      },
+      {
+        "_id": "alert-4",
+        "_source": {
+          "timestamp": "2026-10-21T10:02:10Z",
+          "agent": {"name": "ojs-prod"},
+          "rule": {
+            "id": "100111",
+            "level": 8,
+            "description": "OJS importexport or galley probe.",
+            "groups": ["ojs", "web", "xxe", "CVE-2024-56525"]
+          },
+          "data": {
+            "srcip": "203.0.113.30",
+            "url": "/index.php/ojs/management/importexport/plugin",
+            "id": "200",
+            "cve": "CVE-2024-56525"
+          }
+        }
+      },
+      {
+        "_id": "alert-5",
+        "_source": {
+          "timestamp": "2026-10-21T10:02:20Z",
+          "agent": {"name": "ojs-prod"},
+          "rule": {
+            "id": "100120",
+            "level": 8,
+            "description": "OJS SQL injection attempt.",
+            "groups": ["ojs", "web", "sqli"]
+          },
+          "data": {
+            "srcip": "203.0.113.40",
+            "url": "/index.php/ojs/article/view/1?id=1%20UNION%20SELECT%20password%20FROM%20users",
+            "id": "500"
+          }
+        }
+      },
+      {
+        "_id": "alert-6",
+        "_source": {
+          "timestamp": "2026-10-21T10:02:30Z",
+          "agent": {"name": "ojs-prod"},
+          "rule": {
+            "id": "100121",
+            "level": 6,
+            "description": "OJS XSS attempt.",
+            "groups": ["ojs", "web", "xss"]
+          },
+          "data": {
+            "srcip": "203.0.113.50",
+            "url": "/index.php/ojs/search?q=%3Cscript%3Ealert(1)%3C/script%3E",
+            "id": "200"
+          }
+        }
+      },
+      {
+        "_id": "alert-7",
+        "_source": {
+          "timestamp": "2026-10-21T10:02:59Z",
+          "agent": {"name": "ojs-prod"},
+          "rule": {
+            "id": "100113",
+            "level": 10,
+            "description": "OJS scanner: 20 OJS 404s in 60 seconds.",
+            "groups": ["ojs", "web", "scanner", "CVE-2025-67890"]
+          },
+          "data": {
+            "srcip": "203.0.113.60",
+            "url": "/index.php/ojs/admin/probe19",
+            "id": "404",
+            "cve": "CVE-2025-67890"
+          }
+        }
+      }
+    ]
+  }
+}
